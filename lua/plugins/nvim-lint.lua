@@ -7,6 +7,7 @@ return {
     local custom_xml_path = vim.fn.expand("$HOME/.config/checkstyle/custom.xml")
 
     lint.linters.checkstyle.args = { "-c", custom_xml_path }
+    lint.linters.checkstyle.cmd = "/home/linuxbrew/.linuxbrew/bin/checkstyle"
     lint.linters_by_ft["java"] = {
       "checkstyle",
     }
