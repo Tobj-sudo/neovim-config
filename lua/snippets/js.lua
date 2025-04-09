@@ -34,4 +34,10 @@ ls.add_snippets("javascript", {
     rep(2),
     t(");"),
   }),
+  s("log", {
+    t("console.log("),
+    i(1),
+    t(");"),
+    i(0),
+  }),
 })
