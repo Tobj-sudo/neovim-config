@@ -4,7 +4,9 @@ return {
     {
       "rafamadriz/friendly-snippets",
       config = function()
-        require("luasnip.loaders.from_lua").load({ paths = "./lua/snippets" })
+        require("luasnip.loaders.from_lua").load({
+          paths = { "./lua/snippets" },
+        })
       end,
     },
   },
