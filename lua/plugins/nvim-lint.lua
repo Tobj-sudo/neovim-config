@@ -1,6 +1,7 @@
 return {
   "mfussenegger/nvim-lint",
   event = "LazyFile",
+  -- commit = "0d2650564ce5a8bf8d5a4a4dd05b004936b03215",
 
   config = function()
     local lint = require("lint")
@@ -8,8 +9,14 @@ return {
 
     lint.linters.checkstyle.args = { "-c", custom_xml_path }
     lint.linters.checkstyle.cmd = "/home/linuxbrew/.linuxbrew/bin/checkstyle"
-    lint.linters_by_ft["java"] = {
-      "checkstyle",
+
+    lint.linters_by_ft = {
+      java = {
+        "checkstyle",
+      },
+      python = {
+        "ruff",
+      },
     }
 
     local function getDiagnosticsNamespace()

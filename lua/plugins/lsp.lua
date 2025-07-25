@@ -1,4 +1,40 @@
-return {}
+return {
+  {
+    "neovim/nvim-lspconfig",
+    event = "LazyFile",
+    dependencies = {
+      "mason.nvim",
+      { "mason-org/mason-lspconfig.nvim", config = function() end },
+    },
+    opts = {
+      servers = {
+        ruff = {
+          mason = true,
+          enabled = true,
+          on_attach = function(client)
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+            client.server_capabilities.diagnosticProvider = false
+          end,
+        },
+        pyright = {
+          mason = true,
+          enabled = true,
+          settings = {
+            pyright = {
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                ignore = { "*" },
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+}
 -- return {
 --   {
 --     "nvimtools/none-ls.nvim",
